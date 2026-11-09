@@ -1,0 +1,12 @@
+{
+  "resnet18": {},
+  "resnet18_step": {"schedule": "step"},
+  "resnet18_adam": {"optimizer": "adam", "learning_rate": 0.001},
+  "resnet18_no_skip": {"skip": false},
+  "resnet18_imagenet_stem": {"stem": "imagenet"},
+  "resnet18_no_aug": {"augment": false},
+  "resnet18_wd1e4": {"weight_decay": 0.0001},
+  "resnet18_cutout": {"cutout": true},
+  "resnet18_ls": {"label_smoothing": 0.1},
+  "resnet18_cutout_ls": {"cutout": true, "label_smoothing": 0.1}
+}
