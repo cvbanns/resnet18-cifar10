@@ -7,9 +7,13 @@ three of the five training seeds overlap.
 
 ## Status
 
-The two-epoch smoke test passed on an NVIDIA RTX 2070 Max-Q with 11,173,962
-trainable parameters. The 50-run grid is in progress. Test metrics will be
-available after configuration selection.
+The first full reference run (seed 17) reached **95.38% validation accuracy**
+at epoch 184 and 95.08% at epoch 200. The run took about 82 minutes on an
+NVIDIA RTX 2070 Max-Q with 11,173,962 trainable parameters.
+[Per-epoch metrics](results/reference-seed-17.json)
+
+The 50-run grid is in progress. Test metrics will be available after
+configuration selection.
 
 ## Reproduce
 
