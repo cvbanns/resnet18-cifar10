@@ -184,6 +184,12 @@ def main():
             common.append("--float32")
         for name in CONFIGS:
             for seed in SEEDS:
+                completed = args.run_dir / name / str(seed) / "validation.json"
+                if completed.exists():
+                    row = json.loads(completed.read_text())
+                    if (row["config"], row["seed"], row["epochs"]) != (CONFIGS[name], seed, EPOCHS):
+                        raise ValueError(f"Incompatible completed run in {completed}")
+                    continue
                 subprocess.run([*command, "train", *common, "--experiment", name,
                                 "--seed", str(seed)], check=True)
         subprocess.run([*command, "test", *common], check=True)

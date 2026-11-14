@@ -1,0 +1,15 @@
+{
+  "experiment": "resnet18_cutout_ls",
+  "validation_means": {
+    "resnet18": 0.9531600117683411,
+    "resnet18_step": 0.9508000016212463,
+    "resnet18_adam": 0.940719997882843,
+    "resnet18_no_skip": 0.9491200089454651,
+    "resnet18_imagenet_stem": 0.8785600185394287,
+    "resnet18_no_aug": 0.8883599996566772,
+    "resnet18_wd1e4": 0.9479599952697754,
+    "resnet18_cutout": 0.9608400106430054,
+    "resnet18_ls": 0.9523599863052368,
+    "resnet18_cutout_ls": 0.9614400029182434
+  }
+}
