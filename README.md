@@ -5,15 +5,37 @@ The earlier [plain-CNN study](https://github.com/cvbanns/cifar10-cnn-ablation-st
 achieved 87.51% mean test accuracy. The same validation split is reused here, and
 three of the five training seeds overlap.
 
-## Status
+## Results
 
-The first full reference run (seed 17) reached **95.38% validation accuracy**
-at epoch 184 and 95.08% at epoch 200. The run took about 82 minutes on an
-NVIDIA RTX 2070 Max-Q with 11,173,962 trainable parameters.
-[Per-epoch metrics](results/reference-seed-17.json)
+All 50 runs completed 200 epochs. Validation selection chose ResNet-18 with
+Cutout and label smoothing, which achieved **95.90% ± 0.13 percentage points**
+mean official test accuracy across five seeds. Horizontal-flip test-time
+augmentation achieved **96.27% ± 0.08 points**.
 
-The 50-run grid is in progress. Test metrics will be available after
-configuration selection.
+The standard test result improves on the earlier plain CNN's 87.51% by
+**8.39 percentage points**. These studies use different training recipes and
+seed counts. The first three seeds are shared.
+
+| Configuration | Mean best validation accuracy |
+| --- | ---: |
+| Standard ResNet-18 | 95.32% |
+| Step schedule | 95.08% |
+| Adam | 94.07% |
+| No residual connections | 94.91% |
+| ImageNet stem | 87.86% |
+| No augmentation | 88.84% |
+| Weight decay 0.0001 | 94.80% |
+| Cutout | 96.08% |
+| Label smoothing | 95.24% |
+| Cutout + label smoothing | **96.14%** |
+
+See the [full results](results/README.md) for standard deviations, per-seed
+test scores, per-class accuracy, curves, and confusion matrices. The
+[run records](results/runs) include all training histories and test evaluations.
+
+Runs used an NVIDIA RTX 2070 Max-Q. System memory exhaustion interrupted two
+runs, which resumed from their last complete epoch checkpoints. TensorFlow
+operation determinism was off, so exact bitwise reproduction is not guaranteed.
 
 ## Reproduce
 
