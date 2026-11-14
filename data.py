@@ -44,7 +44,8 @@ def normalize_stats(images):
 
 
 def batches(images, labels, stats, config=None, seed=0, epoch=0):
-    dataset = tf.data.Dataset.from_tensor_slices((images, labels))
+    with tf.device("/CPU:0"):
+        dataset = tf.data.Dataset.from_tensor_slices((images, labels))
     if config is not None:
         dataset = dataset.shuffle(len(labels), seed=seed * 1000 + epoch,
                                   reshuffle_each_iteration=False)
