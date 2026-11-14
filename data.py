@@ -75,5 +75,5 @@ def batches(images, labels, stats, config=None, seed=0, epoch=0):
         return pixels, targets
 
     return (dataset.batch(BATCH).enumerate()
-            .map(preprocess, num_parallel_calls=tf.data.AUTOTUNE)
-            .prefetch(tf.data.AUTOTUNE))
+            .map(preprocess, num_parallel_calls=2)
+            .prefetch(2))
